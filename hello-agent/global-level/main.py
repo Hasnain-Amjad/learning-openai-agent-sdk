@@ -1,7 +1,8 @@
 import os
 from dotenv import load_dotenv
 from agents import Agent, Runner, AsyncOpenAI, set_default_openai_api, set_default_openai_client, set_tracing_disabled
-import 
+import asyncio
+
 load_dotenv()
 
 set_tracing_disabled(disabled=True)
@@ -16,12 +17,21 @@ client = AsyncOpenAI(
 
 set_default_openai_client(client=client)
 
-agent = Agent(
-    name="Assistant",
-    instructions= "you are helpful Assistant"
-)
+async def main():
 
-result = Runner.run_sync(
-    agent,
-    "What is the capital of russia"
-)
+    agent = Agent(
+        name="Assistant",
+        instructions= "you are helpful Assistant",
+        model="gemini-2.0-flash"
+    )
+
+    result = await Runner.run(
+        agent,
+        "What is the capital of russia"
+    )
+
+    print(result.final_output)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
