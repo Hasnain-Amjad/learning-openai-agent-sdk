@@ -45,3 +45,5 @@ output = Runner.run_sync(
     agent2,
     "what is the capital of italy"
 )
+
+print(output.final_output)
