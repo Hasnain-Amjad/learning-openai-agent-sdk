@@ -40,3 +40,8 @@ agent2 = Agent(
     instructions= "you are helpful Assistant",
     model="gemini-2.0-flash"
 )
+
+output = Runner.run_sync(
+    agent2,
+    "what is the capital of italy"
+)
