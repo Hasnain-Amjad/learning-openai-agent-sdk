@@ -17,16 +17,30 @@ client = AsyncOpenAI(
 
 set_default_openai_client(client=client)
 
+agent = Agent(
+    name="Assistant",
+    instructions= "you are helpful Assistant",
+    model="gemini-2.0-flash"
+)
+
+output = Runner.run_sync(
+    agent,
+    "what is the capital of italy"
+)
+
+print(output.final_output)
+
+
 async def main():
 
-    agent = Agent(
+    agent2 = Agent(
         name="Assistant",
         instructions= "you are helpful Assistant",
         model="gemini-2.0-flash"
     )
 
     result = await Runner.run(
-        agent,
+        agent2,
         "What is the capital of russia"
     )
 
@@ -35,15 +49,3 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 
-agent2 = Agent(
-    name="Assistant",
-    instructions= "you are helpful Assistant",
-    model="gemini-2.0-flash"
-)
-
-output = Runner.run_sync(
-    agent2,
-    "what is the capital of italy"
-)
-
-print(output.final_output)
