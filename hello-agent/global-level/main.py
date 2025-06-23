@@ -30,7 +30,6 @@ output = Runner.run_sync(
 
 print(output.final_output)
 
-
 async def main():
 
     agent2 = Agent(
@@ -48,4 +47,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
