@@ -24,9 +24,9 @@ agent = Agent(
     model= OpenAIChatCompletionsModel(model="gemini-2.0-flash", openai_client=client)
     )
 
-output = Runner.run_sync(
+result = Runner.run_sync(
     agent,
     "who is founder of pakistan"
 )
 
-print(output.final_output)
+print(result.final_output)
