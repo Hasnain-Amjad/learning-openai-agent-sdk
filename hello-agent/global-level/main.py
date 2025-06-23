@@ -35,3 +35,8 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 
+agent2 = Agent(
+    name="Assistant",
+    instructions= "you are helpful Assistant",
+    model="gemini-2.0-flash"
+)
