@@ -17,18 +17,18 @@ client = AsyncOpenAI(
 
 set_default_openai_client(client=client)
 
-agent = Agent(
-    name="Assistant",
-    instructions= "you are helpful Assistant",
-    model="gemini-2.0-flash"
-)
+# agent = Agent(
+#     name="Assistant",
+#     instructions= "you are helpful Assistant",
+#     model="gemini-2.0-flash"
+# )
 
-output = Runner.run_sync(
-    agent,
-    "what is the capital of italy"
-)
+# output = Runner.run_sync(
+#     agent,
+#     "what is the capital of italy"
+# )
 
-print(output.final_output)
+# print(output.final_output)
 
 async def main():
 
